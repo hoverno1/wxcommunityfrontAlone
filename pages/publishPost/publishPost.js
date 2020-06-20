@@ -19,7 +19,7 @@ doRegist: function(e){
     data: {
       aid: self.data.aid,
       disease: self.data.disease,
-      diseaseContent: self.data.diseaseContent,
+      diseaseContent: self.data.diseaseContent
     },
     header: {
       'content-type': 'application/x-www-form-urlencoded' // 默认值 上传用这个类型好
@@ -29,6 +29,7 @@ doRegist: function(e){
       self.setData({
         status: req.data,
       })
+      //console.log(globalAid)
     }
   })
   wx.uploadFile({
