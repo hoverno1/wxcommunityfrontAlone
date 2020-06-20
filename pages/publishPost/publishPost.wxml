@@ -1,0 +1,37 @@
+<!--pages/publishPost/publishPost.wxml-->
+<!-- 上传社区文章信息页面 -->
+<!-- <text>{{aid}}</text> -->
+<view class='total'>
+<view class='counter1'>
+  <text class='biaoti'>上传病虫害图片</text>
+</view>
+<text class='biaoti2'>拍照</text>
+<view class='counter2'>
+  <image src='/images/xiangji.png' class='tupian' bindtap='chooseImg' ></image>
+</view>
+  <view class="login-from">
+    <form bindsubmit='doRegist'>
+
+      <!--输入病虫害名称-->
+      <view class="inputView">
+        <input name="disease" class="inputText" placeholder="请输入病害名称" />
+      </view>
+      <view class="line"></view>
+
+      <!-- 输入具体病虫害内容 -->
+      <view class="inputView2">
+      <textarea name="diseaseContent" maxlength="500" value="{{evaContent}}" class="weui-textarea" placeholder="填写内容(12-500字)" />   
+      </view>
+
+      <!--按钮-->
+      <view>
+        <button class="loginBtn" type="primary" form-type='submit'>提交</button>
+      </view>
+    </form>
+    
+      <view>
+        <button class="loginBtn" type="primary" bindtap="toCommunity">去留言</button>
+      </view>
+  </view>
+</view>
+

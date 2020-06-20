@@ -1,0 +1,10 @@
+<template name="postItem">
+  <view class="post-container">
+    <view class="post-author-data">
+      <image class="post-author" src="{{avatar}}"></image>
+      <text class="post-data">{{date}}</text>
+    </view>
+    <text class="post-title">{{disease}}</text>
+    <image class="post-image" src="{{imgSrc}}"></image>
+  </view>
+</template>

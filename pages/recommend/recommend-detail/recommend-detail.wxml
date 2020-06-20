@@ -1,0 +1,32 @@
+<!--pages/community/community-detail/community-detail.wxml-->
+<view class="container">
+  <image src="{{postData.imgSrc}}" class="head-image"></image>
+  <view class="author-date">
+    <image class="avatar" src="{{postData.avatar}}"></image>
+    <text class="author">{{postData.author}}</text>
+  </view>
+  <text class="title">{{postData.disease}}</text>
+  <text class="detail">{{postData.detail}}</text>
+
+
+  <!-- 留言部分 -->
+<view class='msg-box'>
+<view class='send-box'>
+<input bindinput='changeInputVal' class='input' type='text' value='{{inputVal}}' placeholder="请留言......"  placeholder-class='place-input'/>
+<button size='mini' type='primary' bindtap='addMsg' >添加</button>
+</view>
+<text class='msg-info' wx:if="{{msgData.length==0}}">暂无留言...^_^</text>
+<!-- 留言列表 -->
+<view class='list-view'>
+<view class='item' wx:for="{{msgData}}" wx:key="{{index}}">
+<view class="container">
+<textarea class='text1' value='{{item.msg}}' 
+  auto-height='true'></textarea>
+  <!-- 分割线 -->
+  <view class="divLine"></view>
+</view>
+</view>
+</view>
+</view>
+  
+</view>

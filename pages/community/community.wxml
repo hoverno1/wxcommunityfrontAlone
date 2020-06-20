@@ -1,0 +1,19 @@
+<!--pages/community.wxml-->
+<!-- 引入模板 -->
+<import src="community-item/community-item-template.wxml" />
+<view>
+  <!-- <view class="header">
+    <navigator url="../search/search" open-type='navigate' class="searchBar">
+      <icon type="search" size="23rpx"></icon>
+      <text>请输入你想查询的病虫害</text>
+    </navigator>
+  </view> -->
+  <scroll-view scroll-y="true" scroll-x="false" bindscrolltolower="onScrollLower" class="content">
+    <block wx:for="{{posts_key}}" wx:for-item="item" wx:for-index="idx">
+      <!-- 使用template模板 -->
+      <view catchtap="toDetail" data-postId="{{item.postId-1}}">
+        <template is="postItem" data="{{...item}}" />
+      </view>
+    </block>
+  </scroll-view>
+</view>

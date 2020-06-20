@@ -1,0 +1,95 @@
+/* pages/community/community-detail/community-detail.wxss */
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.head-image {
+  width: 750rpx;
+  height: 460rpx;
+}
+
+.author-date {
+  flex-direction: row;
+  margin-left: 30rpx;
+  margin-top: 20rpx;
+}
+
+.avatar {
+  height: 64rpx;
+  width: 64rpx;
+  vertical-align: middle;
+}
+
+.author {
+  font-size: 30rpx;
+  font-weight: 300;
+  margin-left: 20rpx;
+  vertical-align: middle;
+  color: #666;
+}
+
+.title {
+  margin-left: 40rpx;
+  font-size: 36rpx;
+  font-weight: 700;
+  margin-top: 30rpx;
+  letter-spacing: 2px;
+  color: #4b556c;
+}
+
+.detail {
+  color: #666;
+  margin-left: 30rpx;
+  margin-top: 20rpx;
+  margin-right: 30rpx;
+  line-height: 44rpx;
+  letter-spacing: 2px;
+}
+
+/* 留言部分样式 */
+.msg-box{
+  padding: 20px;
+  padding-top: 20px;
+}
+.send-box{
+  display: flex;
+}
+.input{
+  border: 1px solid #ccc;
+  padding: 5px;
+  border-radius: 5px;
+}
+.msg-info{
+  display: block;
+  margin: 10px 0 0 0;
+  color: #339999;
+}
+.place-input{
+  color:#ff6600; 
+}
+
+.list-view{
+  margin: 10px 0 0 0;
+}
+.item{
+  color: #666;
+  margin-top: 5rpx; 
+  /* letter-spacing: 2px; */
+  /* overflow: hidden;
+  border-bottom: 1px solid #ccc; */
+  /* height: 30px; */
+  /* line-height: 30px; */
+}
+.text1{
+  float: left;
+  margin-top: 15px;
+}
+
+/*分割线样式*/
+.divLine{
+ background: rgb(173, 170, 170);
+ width: 100%;
+ height: 5rpx;
+}

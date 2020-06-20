@@ -1,0 +1,42 @@
+.post-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20rpx;
+  margin-bottom: 40rpx;
+  background-color: white;
+  border-top: 1px solid #ededed;
+  border-bottom: 1px solid #ededed;
+  padding-bottom: 10rpx;
+}
+
+.post-author-data {
+  /* 用弹性盒子来控制头像日期水平对齐 */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 10rpx 0 20rpx 10rpx;
+}
+
+.post-author {
+  height: 60rpx;
+  width: 60rpx;
+}
+
+.post-data {
+  margin-left: 20rpx;
+  font-size: 26rpx;
+}
+
+.post-title {
+  font-size: 34rpx;
+  font-weight: 600;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  color: #000;
+}
+
+.post-image {
+  width: 100%;
+  height: 340rpx;
+  margin-bottom: 15px;
+}

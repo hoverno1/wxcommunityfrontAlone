@@ -1,0 +1,38 @@
+<view class='total'>
+<view class='counter1'>
+<text class='biaoti'>上传头像</text>
+</view>
+<text class='biaoti2'>拍照</text>
+<view class='counter2'>
+
+<image src='/images/xiangji.png' class='tupian' bindtap='chooseImg' ></image>
+</view>
+  <view class="login-from">
+    <form bindsubmit='doRegist'>
+      <!--账号-->
+      <view class="inputView">
+        <image class="nameImage" src="../../images/username.png"></image>
+
+        <input name="username" class="inputText" placeholder="请输入用户名" />
+      </view>
+
+      <view class="line"></view>
+
+      <!--密码-->
+      <view class="inputView">
+        <image class="keyImage" src="../../images/password.png"></image>
+
+        <input name="password" class="inputText" password="true" placeholder="请输入密码" />
+      </view>
+
+      <!--按钮-->
+      <view>
+        <button class="loginBtn" type="primary" form-type='submit' bindtap="uploadImg">注册</button>
+      </view>
+
+      <view>
+        <button class="goLoginBtn" type="warn" bindtap="goLoginPage">返回登录</button>
+      </view>
+    </form>
+  </view>
+</view>

@@ -1,0 +1,41 @@
+/* pages/community.wxss */
+@import "community-item/community-item-template.wxss";
+
+.header {
+  background-color: #000;
+  width: 100%;
+  height: 100rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* 数值高的覆盖在上 */
+  z-index: 10000;
+}
+
+.header .searchBar {
+  width: 90%;
+  height: 70rpx;
+  /* 左内边距 */
+  padding-left: 20rpx;
+  border-radius: 10rpx;
+  margin: auto;
+  /* 相对位置 */
+  position: relative;
+  top: 50%;
+  /* 上外边距 */
+  margin-top: -35rpx;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+}
+
+.header .searchBar text {
+  font-size: 26rpx;
+  margin-left: 10rpx;
+  color: #000;
+}
+
+.content {
+  /* padding-top: 80rpx; 有搜索框时再使用*/
+  height: 1250rpx;
+}
