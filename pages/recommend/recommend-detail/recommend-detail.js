@@ -1,14 +1,14 @@
 // pages/community/community-detail/community-detail.js
 //var postsData = require('../../../data/posts-data.js')
-var app= getApp()
+var app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    postsData:[],
-    postId:'',
+    postsData: [],
+    postId: '',
     // 留言部分
     disabled: false,
     avatarUrl: './user-unlogin.png',
@@ -25,15 +25,15 @@ Page({
     // 留言部分
     inputVal: '',
     msgData: [],
-    globalUserName:app.globalData.globalUserName,
-    msg:'',
+    globalUserName: app.globalData.globalUserName,
+    msg: '',
   },
 
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     var self = this;
     //console.log(self.data.postId);
     wx.request({
@@ -42,31 +42,31 @@ Page({
       header: {
         'content-type': 'application/json' // 默认值
       },
-      success: function (req) { 
+      success: function (req) {
         var postsData = req.data;
-          self.setData({
-            postsData: req.data
-    });
-    
-    // 获取从community传来的id
-    var postId = options.id;
-    //console.log(postId);
-    //不知道为什么数据库中postId会自动增加10:已经解决，数据库自动增量的初始值设置一下
-    var postData = postsData[postId];
-    // console.log(postData);
-    self.setData({
-      postId:postId,
-      postData: postData
+        self.setData({
+          postsData: req.data
+        });
+
+        // 获取从community传来的id
+        var postId = options.id;
+        //console.log(postId);
+        //不知道为什么数据库中postId会自动增加10:已经解决，数据库自动增量的初始值设置一下
+        var postData = postsData[postId];
+        // console.log(postData);
+        self.setData({
+          postId: postId,
+          postData: postData
+        })
+
+      }
     })
-  
-  }
-})
     //console.log(self.data.postId);
     wx.request({
       url: 'https://my.plantdisrecogn.com/wxcommunity/queryMessageList',
       method: 'POST',
       data: {
-        postId: self.data.postId+1,
+        postId: options.id,
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded' // 默认值 上传用这个类型好
@@ -102,7 +102,7 @@ Page({
 
     //console.log(app.globalData.globalUserName)
     //判断用户是否已经登录，不登录提示登录
-    if (app.globalData.globalUserName == -1){
+    if (app.globalData.globalUserName == -1) {
       wx.showToast({
         title: '请先登录',
         icon: 'none',
@@ -111,10 +111,10 @@ Page({
       return
     }
     var list = this.data.msgData;
-    if (this.data.inputVal==null){
+    if (this.data.inputVal == null) {
       return
     }
-    this.data.msg=app.globalData.globalUserName + ' 说 ' + this.data.inputVal;
+    this.data.msg = app.globalData.globalUserName + ' 说 ' + this.data.inputVal;
     list.push({
       msg: app.globalData.globalUserName + ' 说 ' + this.data.inputVal
     });
@@ -124,22 +124,22 @@ Page({
       inputVal: ''
     });
     //将留言上传至服务器
-      var self = this;
-      //console.log(self.data.msgData.length)
+    var self = this;
+    //console.log(self.data.msgData.length)
 
     //console.log(self.data.msg),
-      wx.request({
-        url: 'https://my.plantdisrecogn.com/wxcommunity/insertMessage',
-        method: 'POST',
-        data: {
-          postId: self.data.postData.postId,
-          nid: self.data.msgData.length,
-          message: self.data.msg,
-        },
-        header: {
-          'content-type': 'application/x-www-form-urlencoded' // 默认值 上传用这个类型好
-        },
-      })
+    wx.request({
+      url: 'https://my.plantdisrecogn.com/wxcommunity/insertMessage',
+      method: 'POST',
+      data: {
+        postId: self.data.postData.postId,
+        nid: self.data.msgData.length,
+        message: self.data.msg,
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值 上传用这个类型好
+      },
+    })
   },
 
 
@@ -147,49 +147,49 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
 
   }
 })

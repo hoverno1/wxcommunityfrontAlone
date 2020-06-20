@@ -5,7 +5,8 @@
     "pages/community/community-detail/community-detail",
     "pages/userRegist/regist",
     "pages/publishPost/publishPost",
-    "pages/message/message"
+    "pages/message/message",
+    "pages/recommend/recommend"
   ],
   "permission": {
     "scope.userLocation": {
@@ -23,6 +24,10 @@
       {
         "pagePath": "pages/community/community",
         "text": "社区"
+      },
+      {
+        "pagePath": "pages/recommend/recommend",
+        "text": "推荐"
       },
       {
         "pagePath": "pages/publish/publish",
