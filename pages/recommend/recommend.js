@@ -1,4 +1,5 @@
 // pages/community.js
+var app = getApp()
 var postsData = require('../../data/posts-data.js')
 Page({
 
@@ -6,7 +7,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    counts: 3
+    counts: 3,
+    queryId: 1,
+    globalUserName: app.globalData.globalUserName
   },
   // 上滑加载更多
   onScrollLower: function (event) {
@@ -42,8 +45,28 @@ Page({
     // posts_key: postsData.postList.slice(0, this.data.counts)
     // })
     var self = this;
+    if (self.data.globalUserName!=-1){
+      wx.request({
+        url: 'https://my.plantdisrecogn.com/wxcommunity/queryAid',
+        method: 'Get',
+        data: {
+          username: self.data.globalUserName,
+        },
+        header: {
+          'content-type': 'application/json' // 默认值 上传用这个类型好
+        },
+        success: function (req) {
+          //console.log(req.data);
+          self.setData({
+            queryId: req.data,
+          })
+        }
+      })
+    }
     wx.request({
-      url: 'https://my.plantdisrecogn.com/wxcommunity/queryPost',
+      //每个用户推荐3个 number就是推荐数 可自行修改
+      //不是每个用户都能推荐成功 2现在是可以 3只能推荐出一个 所有后台设置的是2（不会根据用户改变而改变）
+      url: 'https://my.plantdisrecogn.com/wxcommunity/recommendByUser?aid=' + self.data.queryId +'&number=3',
       method: 'GET',
       header: {
         'content-type': 'application/json' // 默认值
