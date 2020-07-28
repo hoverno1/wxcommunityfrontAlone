@@ -1,15 +1,17 @@
-const app = getApp()
-
+var app = getApp()
 Page({
   data: {
-    status2: 0
+    status2: 0,
+    username: "",
+    password: "",
   },
   doRegist: function (e) {
     var self = this;
+    console.log(e.detail.value.password)
     self.setData({
       username: e.detail.value.username,
       password: e.detail.value.password,
-      globalUserName:username
+      globalUserName: self.data.username
     })
     wx.request({
       url: 'https://my.plantdisrecogn.com/wxcommunity/Login',
