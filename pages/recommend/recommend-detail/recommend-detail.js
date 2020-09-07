@@ -67,6 +67,7 @@ Page({
       method: 'POST',
       data: {
         postId: options.id,
+        globalUserName: self.data.globalUserName,
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded' // 默认值 上传用这个类型好
